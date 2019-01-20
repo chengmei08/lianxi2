@@ -33,10 +33,18 @@ export default {
     // 点击登录跳转的方法
     handleLogin() {
       // // 接口数据
-      // this.$http.post('login',this.formdata)
-      // .then((res) => {
-      //   console.log(res)
-      // })
+      this.$http.post('login',this.formdata)
+      // !!! => 中间不加空格!!!
+      .then((res)=>{
+        console.log(res)
+        // 解构赋值
+        const {meta: {status,msg},data} = res.data
+        // 判断状态成功时 跳转到home页
+        if(status === 200) {
+          // 路由跳转到home页
+          this.$router.push({name: 'home'})
+        }
+      })
     }
   }
 

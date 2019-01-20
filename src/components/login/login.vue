@@ -7,13 +7,13 @@
     :model="formdata">
       <h2>用户登录</h2>
       <el-form-item label="用户名">
-        <el-input v-model="formdata.name"></el-input>
+        <el-input v-model="formdata.username"></el-input>
       </el-form-item>
       <el-form-item label="密码">
-        <el-input v-model="formdata.region"></el-input>
+        <el-input v-model="formdata.password"></el-input>
       </el-form-item>
         <!-- 按钮 -->
-      <el-button class="login-btn" type="primary">登录</el-button>
+      <el-button @click.prevent="handleLogin()" class="login-btn" type="primary">登录</el-button>
     </el-form>
   </div>
 </template>
@@ -23,12 +23,24 @@ export default {
   data() {
     return {
       formdata: {
-        name: "",
-        region: "",
-        type: ""
+        username: "",
+        password: ""
       }
     };
+  },
+
+  methods: {
+    // 点击登录跳转的方法
+    handleLogin() {
+      // // 接口数据
+      // this.$http.post('login',this.formdata)
+      // .then((res) => {
+      //   console.log(res)
+      // })
+    }
   }
+
+
 };
 </script>
 
